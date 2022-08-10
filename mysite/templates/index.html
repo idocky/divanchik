@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block items %}
+
+<div id="content">
+
+  <div id="sidebar">
+    <h3>Категорії</h3>
+    <ul>
+      <li class="selected">
+        <a  href="/">Всі</a>
+      </li>
+
+        <li  >
+          <a href="/divanikrisla/">Дивани/Крісла</a>
+        </li>
+
+        <li  >
+          <a href="/lizhka/">Ліжка</a>
+        </li>
+
+        <li  >
+          <a href="/stoli/">Столи</a>
+        </li>
+
+        <li  >
+          <a href="/stilci/">Стільці</a>
+        </li>
+
+        <li  >
+          <a href="/shafi/">Шафи</a>
+        </li>
+
+    </ul>
+  </div>
+
+
+    {% for item in f_list %}
+    <div class="item">
+        <a href="/{{item.pk}}">
+          <img src="{{item.item_img.url}}" width="500">
+        </a>
+        <br/>
+        <a  href="/{{item.pk}}" align="center">{{ item.item_name }}</a>
+        <br>
+        {{ item.item_price }} грн
+      </div>
+    {% endfor %}
+
+
+
+</div>
+
+
+{% endblock %}
