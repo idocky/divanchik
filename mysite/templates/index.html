@@ -12,38 +12,24 @@
       <li class="selected">
         <a  href="/">Всі</a>
       </li>
-
+        {% for cat in categories %}
         <li  >
-          <a href="/divanikrisla/">Дивани/Крісла</a>
+          <a href="/{{ cat.cat_slug }}">{{ cat.cat_name }}</a>
         </li>
-
-        <li  >
-          <a href="/lizhka/">Ліжка</a>
-        </li>
-
-        <li  >
-          <a href="/stoli/">Столи</a>
-        </li>
-
-        <li  >
-          <a href="/stilci/">Стільці</a>
-        </li>
-
-        <li  >
-          <a href="/shafi/">Шафи</a>
-        </li>
+      {% endfor %}
 
     </ul>
   </div>
 
 
+
     {% for item in f_list %}
     <div class="item">
-        <a href="/{{item.pk}}">
+        <a href="item/{{item.item_slug}}">
           <img src="{{item.item_img.url}}" width="500">
         </a>
         <br/>
-        <a  href="/{{item.pk}}" align="center">{{ item.item_name }}</a>
+        <a  href="/item/{{item.item_slug}}" align="center">{{ item.item_name }}</a>
         <br>
         {{ item.item_price }} грн
       </div>

@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from items.views import main_page, ItemDetail
+from django.urls import path, include
+from items.views import main_page, item_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_page),
-    path('<int:pk>', ItemDetail.as_view()),
+    path('<slug:category_slug>', main_page),
+    path('', main_page, name='home'),
+    path('item/<slug:slug>', item_detail),
+    path(r'^cart/', include('cart.urls', namespace='cart')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,9 +2,9 @@
 
 {% block item_detail %}
 <div class="product-detail">
-    <img src="{{ item_details.item_img.url }}" width="500">
-    <h1>{{ item_details.item_name }}</h1>
-    {{ item_details.item_desc }}
+    <img src="{{ product.item_img.url }}" width="500">
+    <h1>{{ product.item_name }}</h1>
+    {{ product.item_desc }}
 </div>
 
 <form action="/cart/add/26/" method="post">
